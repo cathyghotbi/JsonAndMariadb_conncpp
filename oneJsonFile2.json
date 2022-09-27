@@ -1,0 +1,85 @@
+{
+    "employees": {
+        "employee1": {
+            "address": {
+                "city": "Prague",
+                "number": 22,
+                "street": "Jeferson"
+            },
+            "age": 25,
+            "children": [
+                "Ben",
+                "Kimberly",
+                "Jack"
+            ],
+            "id": 69,
+            "name": "Eli",
+            "salary": {
+                "currency": "USD",
+                "value": 1000
+            },
+            "title": "dev"
+        },
+        "employee2": {
+            "address": {
+                "city": "Istanbul",
+                "number": 33,
+                "street": "Oak"
+            },
+            "age": 35,
+            "children": [
+                "Robin",
+                "Kevin",
+                "Adrian"
+            ],
+            "id": 55,
+            "name": "Angela",
+            "salary": {
+                "currency": "USD",
+                "value": 2000
+            },
+            "title": "dev"
+        },
+        "employee3": {
+            "address": {
+                "city": "Venice",
+                "number": 101,
+                "street": "Riverside"
+            },
+            "age": 45,
+            "children": [
+                "Emma",
+                "Eva",
+                "Eli"
+            ],
+            "id": 101,
+            "name": "Tom",
+            "salary": {
+                "currency": "USD",
+                "value": 3000
+            },
+            "title": "dev"
+        },
+        "employee4": {
+            "address": {
+                "city": "Athens",
+                "number": 88,
+                "street": "Montgomery"
+            },
+            "age": 55,
+            "children": [
+                "Oliver",
+                "Emily",
+                "Olivia",
+                "Sara"
+            ],
+            "id": 77,
+            "name": "Jerry",
+            "salary": {
+                "currency": "USD",
+                "value": 4000
+            },
+            "title": "dev"
+        }
+    }
+}
