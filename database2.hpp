@@ -20,7 +20,6 @@ public:
   ~DataBase()
 
   {
-    mysql_free_result(m_result);
   }
 
 private:
