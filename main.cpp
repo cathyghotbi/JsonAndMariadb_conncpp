@@ -1,6 +1,7 @@
 
 // $ g++ database2.cpp json2.cpp main.cpp -o readJsonWithCppInsertIntoDB2 -L/usr/include/mariadb/mysql -L/usr/include/mariadb -lmariadbclient -lmariadbcpp -lmysqlcppconn
 // $ sudo ./readJsonWithCppInsertIntoDB2
+// git push -u origin
 #include <string>
 #include <iostream>
 #include <fstream>
