@@ -2,7 +2,7 @@
 #include <memory>
 #include <iostream>
 
-#include "database2.hpp"
+#include "database.hpp"
 
 void DataBase::mysqlExecuteQuery(std::string& sqlQuery)
 {
