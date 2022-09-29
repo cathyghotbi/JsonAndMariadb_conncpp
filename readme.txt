@@ -1,7 +1,9 @@
 
 This repository is using C++, nlohmann::json file and mariadb.
 It is developed on Ubuntu 22.04.1 LTS which is installed on virtual box.
-File created by nlohmann::json is read to fill the database.
+File created by nlohmann::json is read to fill the database using C++ connector for mariadb (mariadb/conncpp.hpp).
+
+Note: User may not be 'root' using C++ connector but if you use mariadb C connector (mariadb/mysql.h), user may be 'root'!
 
 * To login to database and see the table with named 'person' inside database named 'test':
   $ sudo mysql -u root
@@ -9,10 +11,10 @@ File created by nlohmann::json is read to fill the database.
   MariaDB [test]> SELECT * FROM person;
 
 * Command to compile:
-  $ g++ database2.cpp json2.cpp readJsonWithCppInsertIntoDB2.cpp -o readJsonWithCppInsertIntoDB2 -L/usr/include/mariadb/mysql -L/usr/include/mariadb -lmariadbclient -lmariadbcpp -lmysqlcppconn
+  $ g++ database.cpp json.cpp main.cpp -o readJsonWithCppInsertIntoDB -L/usr/include/mariadb/mysql -L/usr/include/mariadb -lmariadbclient -lmariadbcpp -lmysqlcppconn
   
 * Command to run:
-  $ sudo ./readJsonWithCppInsertIntoDB2
+  $ sudo ./readJsonWithCppInsertIntoDB
  
 * References:
  - https://mariadb.com/docs/connect/programming-languages/cpp/
