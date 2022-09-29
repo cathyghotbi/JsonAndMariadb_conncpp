@@ -1,7 +1,32 @@
 #pragma once
 
+#include <vector>
 #include <nlohmann/json.hpp>
 #include "database2.hpp"
+
+struct Address
+{
+  std::string city;
+  int number;
+  std::string street;
+};
+
+struct Salary
+{
+  std::string currency;
+  int value;
+};
+
+struct Employee
+{
+  int id;
+  std::string name;
+  int age;
+  Address address;
+  std::vector<std::string> children;
+  Salary salary;
+  std::string title;
+};
 
 class JsonFile
 {
@@ -11,12 +36,12 @@ public:
   {
     std::cout << " ------------------- JsonFile(const DataBase& db) ------------------- " << std::endl;
   }
-
-  void createJsonFile();
+  
+  std::vector<Employee> parseJsonFile(const std::string& inputFilePath); 
   void addJsonFileToDataBase();
-  void readJsonFile();
 
 private:
   DataBase& m_database;
   nlohmann::json m_jsonObjectFromFile;
+  std::vector<Employee> m_employees;
 };
