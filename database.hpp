@@ -8,7 +8,7 @@
 class DataBase
 {
 public:
-  DataBase(const sql::SQLString& url,  sql::Properties& properties) //not const, km: prev ok since it was being copied into non-const meber variable
+  DataBase(const sql::SQLString& url,  sql::Properties& properties)
   {
     sql::Driver* driver = sql::mariadb::get_driver_instance();
     if(driver == nullptr)
