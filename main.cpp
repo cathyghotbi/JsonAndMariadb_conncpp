@@ -1,6 +1,7 @@
 
 // $ g++ database.cpp json.cpp main.cpp -o readJsonWithCppInsertIntoDB  -lmariadbcpp -lmysqlcppconn
-// $ sudo ./readJsonWithCppInsertIntoDB
+// $ g++ -Wall -Wextra -Werror database.cpp json.cpp main.cpp -o readJsonWithCppInsertIntoDB  -lmariadbcpp -lmysqlcppconn
+// $ ./readJsonWithCppInsertIntoDB
 // git push -u origin
 #include <string>
 #include <iostream>
@@ -22,13 +23,13 @@ int main()
   
   testDatabase.isThereConnection();
 
-  JsonFile jsonFile(testDatabase); 
+  JsonFile jsonFile(testDatabase);
   std::cout << "--------------- reading json file: ---------------" << std::endl;
   const std::string& filePath = "input.json";
-  jsonFile.parseJsonFile(filePath);
+  auto fileData = jsonFile.parseJsonFile(filePath);
 
   std::cout << "--------------- adding the content of json file to database: ---------------" << std::endl;
-  jsonFile.addJsonFileToDataBase();
+  jsonFile.addJsonFileToDataBase(fileData);
 
   std::cout << "--------------- closing conenction to database: ---------------" << std::endl;
 

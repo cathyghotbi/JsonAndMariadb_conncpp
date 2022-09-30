@@ -10,16 +10,13 @@ std::vector<Employee> JsonFile::parseJsonFile(const std::string& inputFilePath)
   std::ifstream fileToRead(inputFilePath);
   fileToRead >> m_jsonObjectFromFile;
   
+  std::vector<Employee> employees;
   std::string eachEmployee = "employee";
-  for(int i = 0; i < m_jsonObjectFromFile["employees"].size(); i++)
+  for(std::size_t i = 0; i < m_jsonObjectFromFile["employees"].size(); i++)
   {
-    Address address;
-    Salary salary;
-    Employee employee;
+    const auto eachEmployee = "employee" + std::to_string(i+1);
     
-    std::string eachEmployee = "employee";
-    eachEmployee += std::to_string(i+1);
-  
+    Employee employee;
     employee.id = *(m_jsonObjectFromFile["employees"][eachEmployee].find("id"));
     employee.name = *(m_jsonObjectFromFile["employees"][eachEmployee].find("name"));
     employee.title = *(m_jsonObjectFromFile["employees"][eachEmployee].find("title"));
@@ -28,17 +25,17 @@ std::vector<Employee> JsonFile::parseJsonFile(const std::string& inputFilePath)
     employee.salary.value = *(m_jsonObjectFromFile["employees"][eachEmployee]["salary"].find("value"));
     employee.salary.currency = *(m_jsonObjectFromFile["employees"][eachEmployee]["salary"].find("currency"));
     
-    m_employees.push_back(employee);
+    employees.push_back(employee);
   }
   
-  return m_employees;
+  return employees;
 }
 
-void JsonFile::addJsonFileToDataBase()
+void JsonFile::addJsonFileToDataBase(const std::vector<Employee>& employees)
 {
   std::cout << " ------------------- JsonFile::addJsonFileToDataBase() ------------------- " << std::endl;
  
-  for(const auto& employee: m_employees)
+  for(const auto& employee: employees)
   {
     std::string command = "INSERT INTO person (id, name, title, age, city, salary, currency) VALUES ('";
     std::string idAsString = std::to_string(employee.id);

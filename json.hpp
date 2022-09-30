@@ -39,10 +39,9 @@ public:
   }
   
   std::vector<Employee> parseJsonFile(const std::string& inputFilePath); 
-  void addJsonFileToDataBase();
+  void addJsonFileToDataBase(const std::vector<Employee>& employees);
 
 private:
   DataBase& m_database;
   nlohmann::json m_jsonObjectFromFile;
-  std::vector<Employee> m_employees;
 };
