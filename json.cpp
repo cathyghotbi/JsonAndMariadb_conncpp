@@ -42,22 +42,16 @@ void JsonFile::addJsonFileToDataBase()
   {
     std::string command = "INSERT INTO person (id, name, title, age, city, salary, currency) VALUES ('";
     std::string idAsString = std::to_string(employee.id);
-    command.append(idAsString);
-    command.append("', '");
-    command.append(employee.name);
-    command.append("', '");
-    command.append(employee.title);
-    command.append("', '");
     std::string ageAsString = std::to_string(employee.age);
-    command.append(ageAsString);
-    command.append("', '");
-    command.append(employee.address.city);
-    command.append("', '");
     std::string salaryAsString = std::to_string(employee.salary.value);
-    command.append(salaryAsString);
-    command.append("', '");
-    command.append(employee.salary.currency);
-    command.append("');");
+    command += idAsString + "', '"
+            + employee.name + "', '"
+            + employee.title + "', '"
+            + ageAsString + "', '"
+            + employee.address.city + "', '"
+            + salaryAsString + "', '"
+            + employee.salary.currency + "');";
+
     if(m_database.isThereConnection())
     {
       m_database.mysqlExecuteQuery(command); 
