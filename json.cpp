@@ -11,7 +11,6 @@ std::vector<Employee> JsonFile::parseJsonFile(const std::string& inputFilePath)
   fileToRead >> m_jsonObjectFromFile;
   
   std::vector<Employee> employees;
-  std::string eachEmployee = "employee";
   for(std::size_t i = 0; i < m_jsonObjectFromFile["employees"].size(); i++)
   {
     const auto eachEmployee = "employee" + std::to_string(i+1);

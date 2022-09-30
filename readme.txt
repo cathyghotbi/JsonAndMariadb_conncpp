@@ -11,8 +11,8 @@ Note: User may not be 'root' using C++ connector but if you use mariadb C connec
   MariaDB [test]> SELECT * FROM person;
 
 * Command to compile:
-  $ g++ database.cpp json.cpp main.cpp -o readJsonWithCppInsertIntoDB  -lmariadbcpp -lmysqlcppconn
-  
+  $ g++/ clang++ -Wall -Wextra -Werror database.cpp json.cpp main.cpp -o readJsonWithCppInsertIntoDB  -lmariadbcpp -lmysqlcppconn
+
 * Command to run:
   $ ./readJsonWithCppInsertIntoDB
  
