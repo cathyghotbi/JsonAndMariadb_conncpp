@@ -17,6 +17,7 @@ Note: User may not be 'root' using C++ connector but if you use mariadb C connec
   $ sudo ./readJsonWithCppInsertIntoDB
  
 * References:
+ - https://github.com/nlohmann/json/blob/develop/docs/examples/README.cpp
  - https://mariadb.com/docs/connect/programming-languages/cpp/
  - https://mariadb.com/downloads/connectors/
  - https://stackoverflow.com/questions/16710047/usr-bin-ld-cannot-find-lnameofthelibrary
