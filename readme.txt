@@ -12,8 +12,6 @@ Note: User may not be 'root' using C++ connector but if you use mariadb C connec
 
 * Command to compile:
   $ g++ database.cpp json.cpp main.cpp -o readJsonWithCppInsertIntoDB -L/usr/include/mariadb -lmariadbcpp -lmysqlcppconn
-
-
   
 * Command to run:
   $ sudo ./readJsonWithCppInsertIntoDB
