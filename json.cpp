@@ -11,22 +11,20 @@ std::vector<Employee> JsonFile::parseJsonFile(const std::string& inputFilePath)
   fileToRead >> m_jsonObjectFromFile;
   
   std::vector<Employee> employees;
-  for(std::size_t i = 0; i < m_jsonObjectFromFile["employees"].size(); i++)
+
+  for(const auto& emp : m_jsonObjectFromFile["employees"])
   {
-    const auto eachEmployee = "employee" + std::to_string(i+1);
-    
     Employee employee;
-    employee.id = *(m_jsonObjectFromFile["employees"][eachEmployee].find("id"));
-    employee.name = *(m_jsonObjectFromFile["employees"][eachEmployee].find("name"));
-    employee.title = *(m_jsonObjectFromFile["employees"][eachEmployee].find("title"));
-    employee.age = *(m_jsonObjectFromFile["employees"][eachEmployee].find("age"));
-    employee.address.city = *(m_jsonObjectFromFile["employees"][eachEmployee]["address"].find("city"));
-    employee.salary.value = *(m_jsonObjectFromFile["employees"][eachEmployee]["salary"].find("value"));
-    employee.salary.currency = *(m_jsonObjectFromFile["employees"][eachEmployee]["salary"].find("currency"));
-    
+    employee.id = emp["id"];
+    employee.name = emp["name"];
+    employee.title = emp["title"];
+    employee.age = emp["age"];
+    employee.address.city = emp["address"]["city"];
+    employee.salary.value = emp["salary"]["value"];
+    employee.salary.currency = emp["salary"]["currency"];
     employees.push_back(employee);
   }
-  
+
   return employees;
 }
 
