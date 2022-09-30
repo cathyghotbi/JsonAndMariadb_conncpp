@@ -33,30 +33,25 @@ std::vector<Employee> JsonFile::parseJsonFile(const std::string& inputFilePath)
 void JsonFile::addJsonFileToDataBase(const std::vector<Employee>& employees)
 {
   std::cout << " ------------------- JsonFile::addJsonFileToDataBase() ------------------- " << std::endl;
+  if(! m_database.isThereConnection())
+  {
+    std::cout << "there is no connection to the database.. no command to be sent" << std::endl;
+    return;
+  }
  
   for(const auto& employee: employees)
   {
     std::string command = "INSERT INTO person (id, name, title, age, city, salary, currency) VALUES ('";
-    std::string idAsString = std::to_string(employee.id);
-    std::string ageAsString = std::to_string(employee.age);
-    std::string salaryAsString = std::to_string(employee.salary.value);
-    command += idAsString + "', '"
+    command += std::to_string(employee.id) + "', '"
             + employee.name + "', '"
             + employee.title + "', '"
-            + ageAsString + "', '"
+            + std::to_string(employee.age) + "', '"
             + employee.address.city + "', '"
-            + salaryAsString + "', '"
+            + std::to_string(employee.salary.value) + "', '"
             + employee.salary.currency + "');";
 
-    if(m_database.isThereConnection())
-    {
-      m_database.mysqlExecuteQuery(command); 
-    }
-    else
-    {
-      std::cout << "there is no connection to the database.." << std::endl;
-      return;
-    }
+
+    m_database.mysqlExecuteQuery(command);
   }
 }
 
